@@ -653,7 +653,7 @@ void dump_vdid(const char *router)
 	snprintf(did_path, sizeof(did_path), "cat %s%s/device", tbt_sysfs_path, router);
 	did = do_bash_cmd(did_path);
 
-	printf("ID %04x:%04x ", strtouh(vid), strtouh(did));
+	printf("ID %04x:%04x ", vid ? strtouh(vid) : 0, did ? strtouh(did) : 0);
 
 	free(vid);
 	free(did);
